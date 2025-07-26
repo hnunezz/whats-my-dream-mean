@@ -1,59 +1,57 @@
-# WhatsDoesMyDreamMean
+#   ✨ Whats My Dream Mean ✨
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+Um aplicativo web desenvolvido em **Angular** que interpreta sonhos usando uma API de IA (mock).  
+Descreva seus sonhos, receba interpretações automáticas, mantenha seu histórico e compartilhe insights.  
 
-## Development server
+<img width="3462" height="1756" alt="image" src="https://github.com/user-attachments/assets/95c4bcf3-cb52-4313-a3c9-a31a3bdbe225" />
+<img width="3462" height="1756" alt="image" src="https://github.com/user-attachments/assets/4e8f4d12-93dc-48aa-b3a5-5b92ba57ae04" />
 
-To start a local development server, run:
+---
+
+## 🛠 **Tecnologias Utilizadas**
+- [Angular 18](https://angular.io/)
+- [RxJS](https://rxjs.dev/)
+- OpeanAI API para geração de interpretações
+
+---
+
+## 🚀 **Instalação e Execução**
 
 ```bash
+# Clonar repositório
+git clone https://github.com/hnunezz/whats-my-dream-mean.git
+
+# Entrar na pasta
+cd whats-does-my-dream-mean
+
+# Instalar dependências
+npm install
+
+# Rodar projeto
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## 🤝 Como Contribuir
+Faça um fork do projeto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Crie uma branch para sua feature:
 
 ```bash
-ng generate --help
+git checkout -b feat/new-feature
 ```
-
-## Building
-
-To build the project run:
+Commit:
 
 ```bash
-ng build
+git commit -m 'My new cool fet'
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+Push:
 ```bash
-ng test
+git push origin feat/new-feature
 ```
 
-## Running end-to-end tests
+----
 
-For end-to-end (e2e) testing, run:
+Abra um Pull Request 💛.
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
