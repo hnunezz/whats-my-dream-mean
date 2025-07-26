@@ -6,6 +6,14 @@
   --bg-color: #010116;
   background-color: var(--bg-color);
   color: #ffffff;
+
+    footer {
+    div {
+      i {
+        color: white ;
+      }
+    }
+  }
 }
 
 body.light-mode {
@@ -21,6 +29,14 @@ body.light-mode {
   .input-container {
     input {
       color: black !important;
+    }
+  }
+
+  footer {
+    div {
+      i {
+        color: #000000a6 ;
+      }
     }
   }
 }

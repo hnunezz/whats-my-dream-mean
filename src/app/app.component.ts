@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ThemeService } from './services/theme.service';
 
 
 export enum SESSION_KEY {
@@ -15,4 +16,12 @@ export enum SESSION_KEY {
 })
 export class AppComponent {
   title = 'Whats does my dream mean ✨';
+
+  constructor(public themeService: ThemeService) {
+    if (typeof localStorage !== 'undefined') {
+      if (localStorage.getItem('theme') === 'light') {
+        this.themeService.toggleTheme();
+      }
+    }
+  }
 }

@@ -38,58 +38,77 @@ footer {
       font-size: 32px;
       cursor: pointer;
       transition: ease-out 0.3s;
-      color: white;
 
       &.fa-1 {
         &.active {
           transition: ease 0.3s;
-          color: rgb(236, 50, 50);
+          color: rgb(236, 50, 50) !important;
         }
         &:hover {
           transition: ease 0.3s;
-          color: rgb(236, 50, 50);
+          color: rgb(236, 50, 50) !important;
         }
       }
       &.fa-2 {
         &.active {
           transition: ease 0.3s;
-          color: #f39237;
+          color: #f39237 !important;
         }
         &:hover {
           transition: ease 0.3s;
-          color: #f39237;
+          color: #f39237 !important;
         }
       }
       &.fa-3 {
         &.active {
           transition: ease 0.3s;
-          color: #fffb46;
+          color: #fffb46 !important;
         }
         &:hover {
           transition: ease 0.3s;
-          color: #fffb46;
+          color: #fffb46 !important;
         }
       }
       &.fa-4 {
         &.active {
           transition: ease 0.3s;
-          color: #b9fd3b;
+          color: #b9fd3b !important;
         }
         &:hover {
           transition: ease 0.3s;
-          color: #b9fd3b;
+          color: #b9fd3b !important;
         }
       }
       &.fa-5 {
         &.active {
           transition: ease 0.3s;
-          color: #d741a7;
+          color: #d741a7 !important;
         }
         &:hover {
           transition: ease 0.3s;
-          color: #d741a7;
+          color: #d741a7 !important;
         }
       }
     }
   }
+}
+
+@media (max-width: 800px) {
+  section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 8px;
+  }
+  h1 {
+    height: auto !important;
+  }
+
+  .result-container {
+    padding: 0;
+  }
+
+   hr {
+    margin: 18px 0% !important;
+   }
 }

@@ -9,4 +9,5 @@ import { SearchInputComponent } from '../../components/search-input/search-input
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
 }
