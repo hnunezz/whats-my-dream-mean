@@ -4,9 +4,16 @@ import {
   isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
+import dotenv from 'dotenv';
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import OpenAI from "openai";
+
+dotenv.config();
+
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -14,21 +21,21 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+const openAI = new OpenAI({ apiKey: process.env['OPEN_API_KEY'], });
 
-/**
- * Serve static files from /browser
- */
+app.post<string>('/dream', jsonParser, async (req, res) => {
+  const prompt = `Interprete sonhos usando significados tradicionais, culturais e psicológicos; responda em até 4 linhas, de forma clara, neutra e educativa, sem previsões, diagnósticos ou conteúdos perigosos.
+SEMPRE Responda no mesmo idioma do texto fornecido.
+Você pode usar tags HTML simples (<b>, <i>) para destacar palavras importantes.
+ "${req.body.input}"`
+  const response = await openAI.responses.create({
+    model: "gpt-4o-mini",
+    input: prompt
+  });
+
+  res.json(response.output_text);
+})
+
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
@@ -37,9 +44,6 @@ app.use(
   }),
 );
 
-/**
- * Handle all other requests by rendering the Angular application.
- */
 app.use('/**', (req, res, next) => {
   angularApp
     .handle(req)
@@ -49,10 +53,6 @@ app.use('/**', (req, res, next) => {
     .catch(next);
 });
 
-/**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
- */
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {

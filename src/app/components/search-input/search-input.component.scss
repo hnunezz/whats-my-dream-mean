@@ -1,0 +1,22 @@
+.input-container {
+  input {
+    width: 100%;
+    height: 42px;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    font-family: "Kanit", sans-serif;
+    padding-left: 10px;
+    border-radius: 8px;
+    font-size: 20px;
+
+    transition: ease-out 0.3s;
+    border: 1px solid #00fff2;
+
+    &:focus,
+    &:hover {
+      transition: ease 0.3s;
+      border: 3px solid #00fff2;
+    }
+  }
+}

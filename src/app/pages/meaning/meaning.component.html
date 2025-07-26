@@ -1,0 +1,49 @@
+<main class="flex flex-col">
+  <div class="container">
+    <section class="flex align-center gap-24">
+      <div class="button" (click)="homeNavigate()">
+        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.293762 5.29373C-0.0968628 5.68435 -0.0968628 6.31873 0.293762 6.70935L5.29376 11.7094C5.68439 12.1 6.31876 12.1 6.70939 11.7094C7.10001 11.3187 7.10001 10.6844 6.70939 10.2937L3.41251 6.99998L13 6.99998C13.5531 6.99998 14 6.5531 14 5.99998C14 5.44685 13.5531 4.99998 13 4.99998L3.41564 4.99998L6.70626 1.70623C7.09689 1.3156 7.09689 0.681225 6.70626 0.2906C6.31564 -0.100025 5.68126 -0.100025 5.29064 0.2906L0.290637 5.2906L0.293762 5.29373Z"
+            fill="#010116" />
+        </svg>
+
+      </div>
+      <h1 class="title">Oque significa seu <i>sonho</i></h1>
+    </section>
+
+    <div class="result-container">
+      <div class="label your-dream">
+        <strong>seu sonho:</strong>
+        <p>
+          {{input}}
+        </p>
+      </div>
+
+      <hr>
+
+      <div class="label meaning-dream">
+        <strong>significado do sonho:</strong>
+
+        @if (loading) {
+        <p><i class="fa-solid fa-spinner fa-spin-pulse" style="font-size: 40px;"></i></p>
+        } @else {
+        <p [innerHTML]="prompt_result"></p>
+        }
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="flex align-center gap-24">
+    <span>como você se sentiu?</span>
+    <div>
+      <i class="fa-solid fa-face-angry fa-1" (click)="setHumor(1)" [ngClass]="{'active': humor_selected === 1}"></i>
+      <i class="fa-solid fa-face-flushed fa-2" (click)="setHumor(2)" [ngClass]="{'active': humor_selected === 2}"></i>
+      <i class="fa-solid fa-face-smile fa-3" (click)="setHumor(3)" [ngClass]="{'active': humor_selected === 3}"></i>
+      <i class="fa-solid fa-face-grin fa-4" (click)="setHumor(4)" [ngClass]="{'active': humor_selected === 4}"></i>
+      <i class="fa-solid fa-face-grin-hearts fa-5" (click)="setHumor(5)"
+        [ngClass]="{'active': humor_selected === 5}"></i>
+    </div>
+  </footer>
+</main>

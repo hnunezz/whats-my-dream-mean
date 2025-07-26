@@ -1,0 +1,95 @@
+section {
+  h1 {
+    height: 100px;
+  }
+}
+
+main {
+  justify-content: space-between;
+}
+
+.result-container {
+  padding: 0 70px;
+  .label {
+    strong {
+      font-size: 24px;
+    }
+
+    p {
+      font-weight: 200;
+      padding: 10px 20px;
+    }
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ffffff;
+    margin: 30px 30%;
+    padding: 0;
+  }
+}
+footer {
+  div {
+    display: flex;
+    gap: 8px;
+    i {
+      font-size: 32px;
+      cursor: pointer;
+      transition: ease-out 0.3s;
+      color: white;
+
+      &.fa-1 {
+        &.active {
+          transition: ease 0.3s;
+          color: rgb(236, 50, 50);
+        }
+        &:hover {
+          transition: ease 0.3s;
+          color: rgb(236, 50, 50);
+        }
+      }
+      &.fa-2 {
+        &.active {
+          transition: ease 0.3s;
+          color: #f39237;
+        }
+        &:hover {
+          transition: ease 0.3s;
+          color: #f39237;
+        }
+      }
+      &.fa-3 {
+        &.active {
+          transition: ease 0.3s;
+          color: #fffb46;
+        }
+        &:hover {
+          transition: ease 0.3s;
+          color: #fffb46;
+        }
+      }
+      &.fa-4 {
+        &.active {
+          transition: ease 0.3s;
+          color: #b9fd3b;
+        }
+        &:hover {
+          transition: ease 0.3s;
+          color: #b9fd3b;
+        }
+      }
+      &.fa-5 {
+        &.active {
+          transition: ease 0.3s;
+          color: #d741a7;
+        }
+        &:hover {
+          transition: ease 0.3s;
+          color: #d741a7;
+        }
+      }
+    }
+  }
+}

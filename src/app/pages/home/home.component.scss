@@ -1,0 +1,16 @@
+section {
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-element {
+  animation: fadeIn 2s forwards; /* 2 seconds duration, retains final state */
+}
