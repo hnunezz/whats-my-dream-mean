@@ -3,8 +3,9 @@
 Um aplicativo web desenvolvido em **Angular** que interpreta sonhos usando uma API de IA (mock).  
 Descreva seus sonhos, receba interpretações automáticas, mantenha seu histórico e compartilhe insights.  
 
-<img width="3462" height="1756" alt="image" src="https://github.com/user-attachments/assets/95c4bcf3-cb52-4313-a3c9-a31a3bdbe225" />
-<img width="3462" height="1756" alt="image" src="https://github.com/user-attachments/assets/4e8f4d12-93dc-48aa-b3a5-5b92ba57ae04" />
+<img width="2838" height="1756" alt="image" src="https://github.com/user-attachments/assets/3aa268e6-5349-4f13-87ac-f9eeadbe9d6d" />
+<img width="2838" height="1756" alt="image" src="https://github.com/user-attachments/assets/6288d44d-0fca-4b4f-95f9-02064012f3fa" />
+<img width="2838" height="1756" alt="image" src="https://github.com/user-attachments/assets/d8f4ccf6-c9f7-4384-8ea4-d1deafd86de7" />
 
 ---
 
