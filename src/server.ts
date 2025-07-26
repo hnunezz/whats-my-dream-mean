@@ -23,7 +23,7 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-const openAI = new OpenAI({ apiKey: process.env['OPEN_API_KEY'], });
+const openAI = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'], });
 
 app.post<string>('/dream', jsonParser, async (req, res) => {
   const prompt = `Interprete sonhos usando significados tradicionais, culturais e psicológicos; responda em até 4 linhas, de forma clara, neutra e educativa, sem previsões, diagnósticos ou conteúdos perigosos.
