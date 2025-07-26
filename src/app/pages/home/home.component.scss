@@ -2,6 +2,10 @@ section {
   animation: fadeIn 2s forwards;
 }
 
+main {
+  justify-content: space-between !important;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -13,4 +17,8 @@ section {
 
 .fade-in-element {
   animation: fadeIn 2s forwards; /* 2 seconds duration, retains final state */
+}
+
+app-header {
+  width: 100%;
 }

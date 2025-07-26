@@ -1,0 +1,81 @@
+* {
+  font-family: "Kanit", sans-serif;
+}
+
+:root {
+  --bg-color: #010116;
+  background-color: var(--bg-color);
+  color: #ffffff;
+}
+
+body.light-mode {
+  --bg-color: #eceef2;
+
+  background-color: var(--bg-color);
+  color: black;
+
+  hr {
+    border-top-color: black !important;
+  }
+
+  .input-container {
+    input {
+      color: black !important;
+    }
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  display: initial;
+  display: block;
+
+  font-family: "Kanit", sans-serif;
+
+  font-size: 20px;
+}
+main {
+  height: calc(100vh - 40px);
+  padding: 20px;
+}
+
+p,
+figure {
+  margin-block: 0;
+  margin-inline: 0;
+  margin: 0;
+}
+
+strong,
+p,
+span {
+  font-family: "Kanit", sans-serif;
+}
+
+* {
+  box-sizing: content-box !important;
+}
+
+h1 {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 2px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #008cff;
+  border-radius: 10px;
+  border: 1px solid #ffffff00;
+}
