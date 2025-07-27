@@ -100,6 +100,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/whats-does-my-dream-mean",
+            "netlifyToken": "nfp_PfMxZokHcywNCybQjts3gxbdwvVvvji8bcd2",
+            "siteId": "bd5cc177-4bbb-4083-8a5f-6877f10e48da"
+          }
         }
       }
     }
