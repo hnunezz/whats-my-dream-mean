@@ -44,11 +44,6 @@ Você pode usar tags HTML simples (<b>, <i>) para destacar palavras importantes.
 
     res.json(response.output_text);
   })
-  app.get<string>('/test', jsonParser, async (req, res) => {
-
-
-    res.json('teste');
-  })
 
   app.use(
     express.static(browserDistFolder, {
