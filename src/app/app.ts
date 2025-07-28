@@ -27,4 +27,7 @@ export class AppService {
   prompt(input: string) {
     return this.http.post('/dream', { input });
   }
+  getss() {
+    return this.http.get('/test');
+  }
 }

@@ -2,9 +2,8 @@
 
 import {
   AngularNodeAppEngine,
-  createNodeRequestHandler,
   isMainModule,
-  writeResponseToNodeResponse,
+  writeResponseToNodeResponse
 } from '@angular/ssr/node';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -12,8 +11,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import OpenAI from "openai";
 
-import { AngularAppEngine, createRequestHandler } from '@angular/ssr'
-import { getContext } from '@netlify/angular-runtime/context.mjs'
+import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
+import { getContext } from '@netlify/angular-runtime/context.mjs';
 
 const angularAppEngine = new AngularAppEngine()
 
@@ -44,6 +43,11 @@ Você pode usar tags HTML simples (<b>, <i>) para destacar palavras importantes.
     });
 
     res.json(response.output_text);
+  })
+  app.get<string>('/test', jsonParser, async (req, res) => {
+
+
+    res.json('teste');
   })
 
   app.use(

@@ -48,10 +48,15 @@ export class MeaningComponent {
       return;
     }
 
-    this.appService.prompt(this.input).subscribe(res => {
-      this.appService.set(SESSION_KEY.PROMPT_KEY,res as string);
-      this.prompt_result = res as string;
+    this.appService.getss().subscribe(res => {
+      // this.appService.set(SESSION_KEY.PROMPT_KEY,res as string);
+      this.prompt_result = 'testee';
       this.loading = false;
     });
+    // this.appService.prompt(this.input).subscribe(res => {
+    //   this.appService.set(SESSION_KEY.PROMPT_KEY,res as string);
+    //   this.prompt_result = res as string;
+    //   this.loading = false;
+    // });
   }
 }
