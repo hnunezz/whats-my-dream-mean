@@ -15,6 +15,8 @@ export class AppService {
   private baseUrl = 'https://backend-whats-my-dream-mean.onrender.com';
 
   prompt(input: string): Observable<DreamResponse> {
-    return this.http.post<DreamResponse>(`${this.baseUrl}/prompt/dream`, { input });
+    return this.http.post<DreamResponse>(`${this.baseUrl}/prompt/dream`, { input }, {
+      withCredentials: true
+    });
   }
 }
