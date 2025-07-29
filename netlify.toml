@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/whats-does-my-dream-mean"
+  publish = "dist/whats-does-my-dream-mean/browser"
   command = "ng build --configuration=production"
 
 [[redirects]]
