@@ -10,8 +10,11 @@ Descreva seus sonhos, receba interpretações automáticas, mantenha seu histór
 ---
 
 ## 🛠 **Tecnologias Utilizadas**
-- [Angular 18](https://angular.io/)
+- [Angular 19](https://angular.io/)
 - [RxJS](https://rxjs.dev/)
+- [NestJS](https://nestjs.com/)
+- Deploy FE - [Vercel](https://vercel.com/)
+- Deploy BE - [Railway](https://railway.com/)
 - OpeanAI API para geração de interpretações
 
 ---
