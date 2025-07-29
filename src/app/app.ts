@@ -15,6 +15,6 @@ export class AppService {
   private baseUrl = 'https://backend-whats-my-dream-mean-m2rge4k7w-hnunezzs-projects.vercel.app/';
 
   prompt(input: string): Observable<DreamResponse> {
-    return this.http.post<DreamResponse>(`${this.baseUrl}/prompt/dream`, { input });
+    return this.http.post<DreamResponse>(`${this.baseUrl}prompt/dream`, { input });
   }
 }
