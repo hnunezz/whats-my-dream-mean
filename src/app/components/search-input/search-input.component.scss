@@ -4,6 +4,20 @@
   grid-template-rows: 1fr;
   gap: 0px 32px;
 
+  .input-view {
+    position: relative;
+
+    small {
+      position: absolute;
+      left: 10px;
+
+      &.hasError {
+        color: #ff2929;
+        animation: shake 2s ease infinite;
+      }
+    }
+  }
+
   input {
     width: 100%;
     height: 42px;
@@ -24,4 +38,9 @@
       border: 3px solid #008cff;
     }
   }
+}
+@keyframes shake {
+	0%, 100% {transform: translateX(0);}
+	10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+	20%, 40%, 60%, 80% {transform: translateX(10px);}
 }

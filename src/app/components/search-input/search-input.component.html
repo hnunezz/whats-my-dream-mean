@@ -1,6 +1,9 @@
 <div class="input-container flex align-center gap-24">
-      <input type="text" placeholder="descreva seu sonho aqui" [(ngModel)]="input"/>
-      <div class="button" (click)="meaningNavigate()" [ngClass]="{'disabled': input() === ''}">
+      <div class="input-view">
+        <input type="text" placeholder="descreva seu sonho aqui" [(ngModel)]="input"/>
+        <small [ngClass]="{'hasError': input().length >= 500 }"> {{input().length}} / 500 </small>
+      </div>
+      <div class="button" (click)="meaningNavigate()"  [ngClass]="{'disabled': input() === '' || input().length >= 500}">
         <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M13.7063 6.70625C14.0969 6.31563 14.0969 5.68125 13.7063 5.29063L8.70625 0.290627C8.31563 -0.0999985 7.68125 -0.0999985 7.29063 0.290627C6.9 0.681252 6.9 1.31563 7.29063 1.70625L10.5875 5L1 5C0.446878 5 2.86102e-06 5.44688 2.86102e-06 6C2.86102e-06 6.55313 0.446878 7 1 7L10.5844 7L7.29375 10.2938C6.90313 10.6844 6.90313 11.3188 7.29375 11.7094C7.68438 12.1 8.31875 12.1 8.70938 11.7094L13.7094 6.70938L13.7063 6.70625Z"

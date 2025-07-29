@@ -28,7 +28,11 @@
         @if (loading) {
         <p><i class="fa-solid fa-spinner fa-spin-pulse" style="font-size: 40px;"></i></p>
         } @else {
+        @if (hasError) {
+        <p>Infelizmente ocorreu um <b [style.color]="'red'">Erro❗️</b> <br/> <small (click)="homeNavigate()">Clique aqui para voltar e refazer</small></p>
+        } @else {
         <p [innerHTML]="prompt_result"></p>
+        }
         }
       </div>
 

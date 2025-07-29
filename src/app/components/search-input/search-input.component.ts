@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SESSION_KEY } from '../../app.component';
@@ -18,6 +18,14 @@ export class SearchInputComponent {
 
   input = signal<string>('')
 
+  @HostListener('document:keydown.enter', ['$event'])
+  onEnterKeydown(event: KeyboardEvent): void {
+    if (this.input() === '') return;
+
+    this.meaningNavigate();
+  }
+
+
   constructor() {
     this.deleteSessions();
   }
@@ -33,7 +41,41 @@ export class SearchInputComponent {
   }
 
   meaningNavigate() {
-    this.sessionService.setSession(SESSION_KEY.INPUT_KEY, this.input());
+    const input = this.sanitizeString(this.input());
+
+    //!Quando aplicamos a limpeza na string
+    //!Ela pode retornar "" (< >)
+    //!Evitando levar pra sessão um ""
+    if (input === "") {
+      this.input.set('');
+      return;
+    }
+
+    this.sessionService.setSession(SESSION_KEY.INPUT_KEY, input);
     this.router.navigate(['/meaning'])
+  }
+
+  private sanitizeString(inputString: string): string {
+    if (inputString === null || inputString === undefined) {
+      return "";
+    }
+
+    let cleaned = String(inputString);
+
+    cleaned = cleaned.trim();
+    cleaned = cleaned.replace(/\s+/g, ' ');
+    cleaned = cleaned.replace(/['";`]/g, '');
+    cleaned = cleaned.replace(/--|\/\*|\*\/|xp_cmdshell|exec\(/gi, '');
+    cleaned = cleaned.replace(/<[^>]*>?/gm, '');
+    cleaned = cleaned.replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;')
+      .replace(/\//g, '&#x2F;');
+
+    console.log(cleaned);
+
+    return cleaned;
   }
 }

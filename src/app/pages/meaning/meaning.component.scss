@@ -93,6 +93,13 @@ footer {
   }
 }
 
+small {
+  cursor: pointer;
+  &:hover {
+    transition: ease 0.3s;
+    color: #ff2929;
+  }
+}
 @media (max-width: 800px) {
   section {
     display: grid;
@@ -108,7 +115,7 @@ footer {
     padding: 0;
   }
 
-   hr {
+  hr {
     margin: 18px 0% !important;
-   }
+  }
 }
