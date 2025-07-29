@@ -12,4 +12,20 @@ export class ThemeService {
     document.body.classList.toggle('light-mode', this.currentTheme() === 'light');
     localStorage.setItem("theme", this.currentTheme());
   }
+
+    setSession(key: string, input: string) {
+    sessionStorage.setItem(key, input);
+  }
+
+  getSession(key: string) {
+    return sessionStorage.getItem(key) as string;
+  }
+
+  hasSession(key: string) {
+    return sessionStorage.getItem(key) !== null
+  }
+
+  deleteSession(key: string) {
+    sessionStorage.removeItem(key)
+  }
 }

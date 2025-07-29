@@ -1,8 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { AppService } from '../../app';
 import { Router } from '@angular/router';
 import { SESSION_KEY } from '../../app.component';
 import { NgClass } from '@angular/common';
+import { SessionService } from '../../services/session.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-meaning',
@@ -11,8 +13,10 @@ import { NgClass } from '@angular/common';
   styleUrl: './meaning.component.scss'
 })
 export class MeaningComponent {
+  private destroyRef = inject(DestroyRef);
   private router = inject(Router);
   private appService = inject(AppService);
+  private sessionService = inject(SessionService);
 
   input: string = '';
   prompt_result: string = '';
@@ -20,14 +24,15 @@ export class MeaningComponent {
   humor_selected: number = 0;
 
   constructor() {
-    if (!this.appService.has(SESSION_KEY.INPUT_KEY)) {
+    if (!this.sessionService.hasSession(SESSION_KEY.INPUT_KEY)) {
       this.router.navigate(["/"]);
       return;
     }
 
-    this.input = this.appService.get(SESSION_KEY.INPUT_KEY);
-    this.humor_selected = parseInt(this.appService.get(SESSION_KEY.HUMOR_KEY));
-    this.getPrompt();
+    this.input = this.sessionService.getSession(SESSION_KEY.INPUT_KEY);
+    this.humor_selected = parseInt(this.sessionService.getSession(SESSION_KEY.HUMOR_KEY));
+
+    this.sendPrompt();
   }
 
   homeNavigate() {
@@ -35,23 +40,32 @@ export class MeaningComponent {
   }
 
   setHumor(type: number) {
-    this.appService.set(SESSION_KEY.HUMOR_KEY, type.toString());
+    this.sessionService.setSession(SESSION_KEY.HUMOR_KEY, type.toString());
     this.humor_selected = type;
   }
 
-
-
-  private getPrompt() {
-    if (this.appService.has(SESSION_KEY.PROMPT_KEY)) {
-      this.prompt_result = this.appService.get(SESSION_KEY.PROMPT_KEY);
+  private sendPrompt() {
+    if (this.hasPrompt()) {
+      this.prompt_result = this.sessionService.getSession(SESSION_KEY.PROMPT_KEY);
       this.loading = false;
       return;
     }
 
-    this.appService.prompt(this.input).subscribe(res => {
-      this.appService.set(SESSION_KEY.PROMPT_KEY,res as string);
-      this.prompt_result = res as string;
-      this.loading = false;
-    });
+    this.prompt();
+  }
+
+  private prompt() {
+    this.appService
+      .prompt(this.input)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((res: any) => {
+        this.sessionService.setSession(SESSION_KEY.PROMPT_KEY, res.dream as string);
+        this.prompt_result = res.dream as string;
+        this.loading = false;
+      });
+  }
+
+  private hasPrompt() {
+    return this.sessionService.hasSession(SESSION_KEY.PROMPT_KEY);
   }
 }

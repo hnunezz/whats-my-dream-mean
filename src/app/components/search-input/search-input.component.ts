@@ -2,8 +2,8 @@ import { NgClass } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppService } from '../../app';
 import { SESSION_KEY } from '../../app.component';
+import { SessionService } from '../../services/session.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { SESSION_KEY } from '../../app.component';
 })
 export class SearchInputComponent {
   private router = inject(Router);
-  private appService = inject(AppService);
+  private sessionService = inject(SessionService);
 
   input = signal<string>('')
 
@@ -28,12 +28,12 @@ export class SearchInputComponent {
     Object.values(SESSION_KEY_ENUM)
       .filter(e => typeof e === 'string')
       .map(k => {
-        this.appService.delete(k);
+        this.sessionService.deleteSession(k);
       });
   }
 
   meaningNavigate() {
-    this.appService.set(SESSION_KEY.INPUT_KEY, this.input());
+    this.sessionService.setSession(SESSION_KEY.INPUT_KEY, this.input());
     this.router.navigate(['/meaning'])
   }
 }
