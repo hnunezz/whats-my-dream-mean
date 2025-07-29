@@ -74,8 +74,6 @@ export class SearchInputComponent {
       .replace(/'/g, '&#x27;')
       .replace(/\//g, '&#x2F;');
 
-    console.log(cleaned);
-
     return cleaned;
   }
 }
