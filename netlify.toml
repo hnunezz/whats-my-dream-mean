@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/dist/whats-does-my-dream-mean" # Altere para o nome da pasta correta
+  publish = "dist/dist/whats-does-my-dream-mean"
   command = "ng build --configuration=production"
 
 [[redirects]]
