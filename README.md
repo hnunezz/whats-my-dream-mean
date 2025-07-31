@@ -1,6 +1,6 @@
 #   ✨ Whats My Dream Mean ✨
 
-Um aplicativo web desenvolvido em **Angular** que interpreta sonhos usando uma API de IA (mock).  
+Um aplicativo web desenvolvido em **Angular** que interpreta sonhos usando uma API de IA.  
 Descreva seus sonhos, receba interpretações automáticas, mantenha seu histórico e compartilhe insights.  
 
 <img width="2838" height="1756" alt="image" src="https://github.com/user-attachments/assets/3aa268e6-5349-4f13-87ac-f9eeadbe9d6d" />
